@@ -1,12 +1,9 @@
 <?php
 /**
- * Grand Theft Auto VI - Cinematic Video Background & Transparent Countdown Timer
+ * Grand Theft Auto VI - Release Countdown Timer
  * Features:
- *  - Fullscreen looping official GTA 6 Trailer background video
- *  - Frosted glassmorphism transparent countdown timer in the foreground
+ *  - Countdown to the target release date
  *  - Live real-time ticking (Days, Hours, Minutes, Seconds)
- *  - Audio toggle to unmute trailer soundtrack / mute
- *  - Video Play/Pause toggle
  */
 
 // Countdown target date: Autumn 2026 release target
@@ -22,7 +19,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grand Theft Auto VI — Official Release Countdown</title>
   <meta name="description"
-    content="Official Grand Theft Auto VI release countdown with full-screen background video and transparent glassmorphic timer.">
+    content="Grand Theft Auto VI release countdown timer.">
 
   <!-- Google Fonts: Syncopate + Space Grotesk + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,57 +74,6 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     }
 
     /* -------------------------------------------------------------
-       2. FULLSCREEN BACKGROUND VIDEO CONTAINER
-       ------------------------------------------------------------- */
-    .video-background-wrap {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-      background: #000;
-    }
-
-    .bg-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      filter: brightness(0.82) contrast(1.1) saturate(1.15);
-    }
-
-    /* Gradient & Vignette Overlay over video */
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at center, rgba(5, 7, 15, 0.35) 0%, rgba(5, 7, 15, 0.85) 85%),
-        linear-gradient(to bottom, rgba(5, 7, 15, 0.6) 0%, transparent 25%, transparent 75%, rgba(5, 7, 15, 0.9) 100%),
-        linear-gradient(135deg, rgba(255, 42, 133, 0.15) 0%, transparent 40%, rgba(0, 240, 255, 0.15) 100%);
-      pointer-events: none;
-    }
-
-    /* Subtle Animated Retro Scanline */
-    .scanlines {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-          rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0) 50%,
-          rgba(0, 0, 0, 0.25) 50%,
-          rgba(0, 0, 0, 0.25));
-      background-size: 100% 4px;
-      pointer-events: none;
-      opacity: 0.35;
-    }
-
-    /* -------------------------------------------------------------
        3. TOP NAVIGATION / CONTROLS BAR
        ------------------------------------------------------------- */
     .gta-nav {
@@ -179,51 +125,6 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       color: var(--neon-cyan);
       text-transform: uppercase;
       font-weight: 700;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(14, 20, 40, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      padding: 9px 18px;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      cursor: pointer;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      touch-action: manipulation;
-    }
-
-    .action-btn:hover {
-      background: rgba(255, 42, 133, 0.25);
-      border-color: var(--neon-pink);
-      color: #fff;
-      box-shadow: 0 0 20px rgba(255, 42, 133, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .action-btn:focus-visible {
-      outline: 2px solid var(--neon-cyan);
-      outline-offset: 3px;
-    }
-
-    .action-btn[aria-pressed="true"] {
-      border-color: var(--neon-cyan);
-      background: rgba(0, 240, 255, 0.2);
-      color: var(--neon-cyan);
-      box-shadow: 0 0 18px rgba(0, 240, 255, 0.4);
     }
 
     /* -------------------------------------------------------------
@@ -446,8 +347,8 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       color: #fff;
     }
 
-    /* -------------------------------------------------------------
-       6. BOTTOM CONTROLS & SOUND INDICATOR
+     /* -------------------------------------------------------------
+       6. BOTTOM DETAILS BAR
        ------------------------------------------------------------- */
     .bottom-bar {
       position: relative;
@@ -459,22 +360,6 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       background: linear-gradient(to top, rgba(5, 7, 15, 0.9) 0%, transparent 100%);
       font-size: 0.8rem;
       color: var(--text-muted);
-    }
-
-    .video-info-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: #cbd5e1;
-    }
-
-    .video-live-indicator {
-      width: 7px;
-      height: 7px;
-      background-color: var(--neon-teal);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--neon-teal);
     }
 
     /* -------------------------------------------------------------
@@ -521,18 +406,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 
 <body>
 
-  <!-- Fullscreen Official GTA 6 Trailer Background Video -->
-  <div class="video-background-wrap" aria-hidden="true">
-    <video class="bg-video" id="gtaBgVideo" autoplay loop muted playsinline preload="auto">
-      <source src="videos/gta6_trailer.mp4" type="video/mp4">
-      <source src="https://archive.org/download/grand-theft-auto-vi-trailer-14k-2160p/Grand%20Theft%20Auto%20VI%20Trailer%2014k%202160p.ia.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <div class="video-overlay"></div>
-    <div class="scanlines"></div>
-  </div>
-
-  <!-- Top Navigation & Media Bar -->
+  <!-- Header -->
   <header class="gta-nav" role="banner">
     <a href="#" class="brand-logo-wrap" aria-label="Grand Theft Auto VI Home">
       <span class="logo-vi-badge">VI</span>
@@ -542,30 +416,6 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       </div>
     </a>
 
-    <div class="nav-actions">
-      <!-- Trailer Video Audio Unmute / Mute Toggle -->
-      <button type="button" class="action-btn" id="audioToggleBtn" aria-pressed="false"
-        aria-label="Toggle trailer sound">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="audioIcon"
-          aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-        </svg>
-        <span id="audioBtnText">Sound: Muted</span>
-      </button>
-
-      <!-- Video Play / Pause Toggle -->
-      <button type="button" class="action-btn" id="videoPlayPauseBtn" aria-pressed="false"
-        aria-label="Pause background trailer video">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" id="videoPlayIcon" aria-hidden="true">
-          <rect x="6" y="4" width="4" height="16" rx="1" />
-          <rect x="14" y="4" width="4" height="16" rx="1" />
-        </svg>
-        <span id="videoPlayText">Video: Playing</span>
-      </button>
-    </div>
   </header>
 
   <!-- Main Hero Foreground with the Transparent Timer -->
@@ -629,16 +479,10 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 
   <!-- Bottom Details Bar -->
   <footer class="bottom-bar">
-    <div class="video-info-pill">
-      <span class="video-live-indicator"></span>
-      <span>Official GTA 6 Trailer 1 Background Playback</span>
-    </div>
     <div>Grand Theft Auto VI &copy; Rockstar Games &bull; Take-Two Interactive</div>
   </footer>
 
-  <!-- ========================================================
-       CLIENT-SIDE JAVASCRIPT: REAL-TIME COUNTDOWN & VIDEO CONTROLS
-       ======================================================== -->
+  <!-- Real-time countdown timer -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -676,68 +520,6 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 
       updateTimer();
       setInterval(updateTimer, 1000);
-
-      /* -------------------------------------------------------------
-         2. BACKGROUND VIDEO & SOUND CONTROLS
-         ------------------------------------------------------------- */
-      const video = document.getElementById('gtaBgVideo');
-      const audioBtn = document.getElementById('audioToggleBtn');
-      const audioBtnText = document.getElementById('audioBtnText');
-      const audioIcon = document.getElementById('audioIcon');
-      const videoPlayBtn = document.getElementById('videoPlayPauseBtn');
-      const videoPlayText = document.getElementById('videoPlayText');
-      const videoPlayIcon = document.getElementById('videoPlayIcon');
-
-      // Ensure video plays automatically on load
-      if (video) {
-        video.muted = true;
-        video.play().catch(err => {
-          console.log('Video autoplay initiated:', err);
-        });
-      }
-
-      // Toggle Audio (Unmute / Mute Trailer Sound)
-      audioBtn?.addEventListener('click', function () {
-        if (!video) return;
-        if (video.muted) {
-          video.muted = false;
-          video.volume = 0.85;
-          audioBtn.setAttribute('aria-pressed', 'true');
-          audioBtnText.textContent = 'Sound: ON';
-          audioIcon.innerHTML = `
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-        `;
-        } else {
-          video.muted = true;
-          audioBtn.setAttribute('aria-pressed', 'false');
-          audioBtnText.textContent = 'Sound: Muted';
-          audioIcon.innerHTML = `
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-        `;
-        }
-      });
-
-      // Toggle Video Play / Pause
-      videoPlayBtn?.addEventListener('click', function () {
-        if (!video) return;
-        if (video.paused) {
-          video.play();
-          videoPlayBtn.setAttribute('aria-pressed', 'false');
-          videoPlayText.textContent = 'Video: Playing';
-          videoPlayIcon.innerHTML = `
-          <rect x="6" y="4" width="4" height="16" rx="1"/>
-          <rect x="14" y="4" width="4" height="16" rx="1"/>
-        `;
-        } else {
-          video.pause();
-          videoPlayBtn.setAttribute('aria-pressed', 'true');
-          videoPlayText.textContent = 'Video: Paused';
-          videoPlayIcon.innerHTML = `
-          <polygon points="5 3 19 12 5 21 5 3"/>
-        `;
-        }
-      });
 
     });
   </script>
