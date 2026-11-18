@@ -16,16 +16,20 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grand Theft Auto VI — Official Release Countdown</title>
-  <meta name="description" content="Official Grand Theft Auto VI release countdown with full-screen background video and transparent glassmorphic timer.">
+  <meta name="description"
+    content="Official Grand Theft Auto VI release countdown with full-screen background video and transparent glassmorphic timer.">
 
   <!-- Google Fonts: Syncopate + Space Grotesk + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syncopate:wght@700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syncopate:wght@700;800&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
@@ -37,11 +41,11 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       --neon-cyan: #00f0ff;
       --neon-teal: #00d9b8;
       --neon-amber: #ffb703;
-      
+
       --glass-bg: rgba(10, 14, 30, 0.42);
       --glass-border: rgba(255, 255, 255, 0.18);
       --glass-blur: 24px;
-      
+
       --text-main: #ffffff;
       --text-sub: #cbd5e1;
       --text-muted: #94a3b8;
@@ -51,13 +55,16 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       height: 100%;
       background-color: #05070d;
@@ -99,7 +106,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: 
+      background:
         radial-gradient(ellipse at center, rgba(5, 7, 15, 0.35) 0%, rgba(5, 7, 15, 0.85) 85%),
         linear-gradient(to bottom, rgba(5, 7, 15, 0.6) 0%, transparent 25%, transparent 75%, rgba(5, 7, 15, 0.9) 100%),
         linear-gradient(135deg, rgba(255, 42, 133, 0.15) 0%, transparent 40%, rgba(0, 240, 255, 0.15) 100%);
@@ -110,13 +117,11 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     .scanlines {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 0, 0.25) 50%,
-        rgba(0, 0, 0, 0.25)
-      );
+      background: linear-gradient(to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 0, 0.25) 50%,
+          rgba(0, 0, 0, 0.25));
       background-size: 100% 4px;
       pointer-events: none;
       opacity: 0.35;
@@ -266,8 +271,17 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     }
 
     @keyframes pulseBlink {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
     }
 
     .hero-main-title {
@@ -297,7 +311,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     /* -------------------------------------------------------------
        5. THE TRANSPARENT FROSTED GLASS COUNTDOWN CARD
        ------------------------------------------------------------- */
-    .glass-timer-card {
+    /* .glass-timer-card {
       position: relative;
       max-width: 960px;
       width: 100%;
@@ -307,13 +321,13 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       padding: 3rem 2.5rem;
       backdrop-filter: blur(var(--glass-blur));
       -webkit-backdrop-filter: blur(var(--glass-blur));
-      box-shadow: 
-        0 25px 60px rgba(0, 0, 0, 0.65), 
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.65),
         0 0 40px rgba(255, 42, 133, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
       transition: all 0.3s ease;
       overflow: hidden;
-    }
+    } */
 
     /* Glowing neon accent bars */
     .glass-timer-card::before {
@@ -372,7 +386,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       letter-spacing: 1px;
       color: #ffffff;
       font-variant-numeric: tabular-nums;
-      text-shadow: 
+      text-shadow:
         0 0 20px rgba(255, 42, 133, 0.8),
         0 0 45px rgba(0, 240, 255, 0.5);
       margin-bottom: 0.6rem;
@@ -470,25 +484,31 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
       .gta-nav {
         padding: 1.25rem 1.25rem;
       }
+
       .hero-foreground {
         padding: 1.5rem 1rem 3rem;
       }
+
       .glass-timer-card {
         padding: 2rem 1.25rem;
         border-radius: 20px;
       }
+
       .timer-columns-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
       }
+
       .transparent-unit-box {
         padding: 1.25rem 0.5rem;
       }
+
       .target-bar {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
+
       .bottom-bar {
         flex-direction: column;
         gap: 8px;
@@ -498,20 +518,14 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
     }
   </style>
 </head>
+
 <body>
 
   <!-- Fullscreen Official GTA 6 Trailer Background Video -->
   <div class="video-background-wrap" aria-hidden="true">
-    <video 
-      class="bg-video" 
-      id="gtaBgVideo" 
-      autoplay 
-      loop 
-      muted 
-      playsinline
-      preload="auto"
-    >
+    <video class="bg-video" id="gtaBgVideo" autoplay loop muted playsinline preload="auto">
       <source src="videos/gta6_trailer.mp4" type="video/mp4">
+      <source src="https://archive.org/download/grand-theft-auto-vi-trailer-14k-2160p/Grand%20Theft%20Auto%20VI%20Trailer%2014k%202160p.ia.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
     <div class="video-overlay"></div>
@@ -530,19 +544,24 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 
     <div class="nav-actions">
       <!-- Trailer Video Audio Unmute / Mute Toggle -->
-      <button type="button" class="action-btn" id="audioToggleBtn" aria-pressed="false" aria-label="Toggle trailer sound">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="audioIcon" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+      <button type="button" class="action-btn" id="audioToggleBtn" aria-pressed="false"
+        aria-label="Toggle trailer sound">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="audioIcon"
+          aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
         </svg>
         <span id="audioBtnText">Sound: Muted</span>
       </button>
 
       <!-- Video Play / Pause Toggle -->
-      <button type="button" class="action-btn" id="videoPlayPauseBtn" aria-pressed="false" aria-label="Pause background trailer video">
+      <button type="button" class="action-btn" id="videoPlayPauseBtn" aria-pressed="false"
+        aria-label="Pause background trailer video">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" id="videoPlayIcon" aria-hidden="true">
-          <rect x="6" y="4" width="4" height="16" rx="1"/>
-          <rect x="14" y="4" width="4" height="16" rx="1"/>
+          <rect x="6" y="4" width="4" height="16" rx="1" />
+          <rect x="14" y="4" width="4" height="16" rx="1" />
         </svg>
         <span id="videoPlayText">Video: Playing</span>
       </button>
@@ -564,7 +583,7 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
 
     <!-- Transparent Frosted Glass Countdown Timer Card -->
     <div class="glass-timer-card" role="timer" aria-live="off" aria-label="Grand Theft Auto VI Release Countdown">
-      
+
       <div class="timer-columns-grid">
         <!-- Days -->
         <div class="transparent-unit-box">
@@ -621,106 +640,107 @@ $releaseSubtitle = "VICE CITY // STATE OF LEONIDA";
        CLIENT-SIDE JAVASCRIPT: REAL-TIME COUNTDOWN & VIDEO CONTROLS
        ======================================================== -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    /* -------------------------------------------------------------
-       1. LIVE REAL-TIME COUNTDOWN TIMER
-       ------------------------------------------------------------- */
-    const targetDate = new Date('<?= $releaseDateTarget ?>').getTime();
-    const daysEl = document.getElementById('daysVal');
-    const hoursEl = document.getElementById('hoursVal');
-    const minutesEl = document.getElementById('minutesVal');
-    const secondsEl = document.getElementById('secondsVal');
+    document.addEventListener('DOMContentLoaded', function () {
 
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+      /* -------------------------------------------------------------
+         1. LIVE REAL-TIME COUNTDOWN TIMER
+         ------------------------------------------------------------- */
+      const targetDate = new Date('<?= $releaseDateTarget ?>').getTime();
+      const daysEl = document.getElementById('daysVal');
+      const hoursEl = document.getElementById('hoursVal');
+      const minutesEl = document.getElementById('minutesVal');
+      const secondsEl = document.getElementById('secondsVal');
 
-      if (distance <= 0) {
-        daysEl.textContent = '00';
-        hoursEl.textContent = '00';
-        minutesEl.textContent = '00';
-        secondsEl.textContent = '00';
-        return;
+      function updateTimer() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = String(days).padStart(3, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      updateTimer();
+      setInterval(updateTimer, 1000);
 
-      daysEl.textContent = String(days).padStart(3, '0');
-      hoursEl.textContent = String(hours).padStart(2, '0');
-      minutesEl.textContent = String(minutes).padStart(2, '0');
-      secondsEl.textContent = String(seconds).padStart(2, '0');
-    }
+      /* -------------------------------------------------------------
+         2. BACKGROUND VIDEO & SOUND CONTROLS
+         ------------------------------------------------------------- */
+      const video = document.getElementById('gtaBgVideo');
+      const audioBtn = document.getElementById('audioToggleBtn');
+      const audioBtnText = document.getElementById('audioBtnText');
+      const audioIcon = document.getElementById('audioIcon');
+      const videoPlayBtn = document.getElementById('videoPlayPauseBtn');
+      const videoPlayText = document.getElementById('videoPlayText');
+      const videoPlayIcon = document.getElementById('videoPlayIcon');
 
-    updateTimer();
-    setInterval(updateTimer, 1000);
+      // Ensure video plays automatically on load
+      if (video) {
+        video.muted = true;
+        video.play().catch(err => {
+          console.log('Video autoplay initiated:', err);
+        });
+      }
 
-    /* -------------------------------------------------------------
-       2. BACKGROUND VIDEO & SOUND CONTROLS
-       ------------------------------------------------------------- */
-    const video = document.getElementById('gtaBgVideo');
-    const audioBtn = document.getElementById('audioToggleBtn');
-    const audioBtnText = document.getElementById('audioBtnText');
-    const audioIcon = document.getElementById('audioIcon');
-    const videoPlayBtn = document.getElementById('videoPlayPauseBtn');
-    const videoPlayText = document.getElementById('videoPlayText');
-    const videoPlayIcon = document.getElementById('videoPlayIcon');
-
-    // Ensure video plays automatically on load
-    if (video) {
-      video.muted = true;
-      video.play().catch(err => {
-        console.log('Video autoplay initiated:', err);
-      });
-    }
-
-    // Toggle Audio (Unmute / Mute Trailer Sound)
-    audioBtn?.addEventListener('click', function() {
-      if (!video) return;
-      if (video.muted) {
-        video.muted = false;
-        video.volume = 0.85;
-        audioBtn.setAttribute('aria-pressed', 'true');
-        audioBtnText.textContent = 'Sound: ON';
-        audioIcon.innerHTML = `
+      // Toggle Audio (Unmute / Mute Trailer Sound)
+      audioBtn?.addEventListener('click', function () {
+        if (!video) return;
+        if (video.muted) {
+          video.muted = false;
+          video.volume = 0.85;
+          audioBtn.setAttribute('aria-pressed', 'true');
+          audioBtnText.textContent = 'Sound: ON';
+          audioIcon.innerHTML = `
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
         `;
-      } else {
-        video.muted = true;
-        audioBtn.setAttribute('aria-pressed', 'false');
-        audioBtnText.textContent = 'Sound: Muted';
-        audioIcon.innerHTML = `
+        } else {
+          video.muted = true;
+          audioBtn.setAttribute('aria-pressed', 'false');
+          audioBtnText.textContent = 'Sound: Muted';
+          audioIcon.innerHTML = `
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
         `;
-      }
-    });
+        }
+      });
 
-    // Toggle Video Play / Pause
-    videoPlayBtn?.addEventListener('click', function() {
-      if (!video) return;
-      if (video.paused) {
-        video.play();
-        videoPlayBtn.setAttribute('aria-pressed', 'false');
-        videoPlayText.textContent = 'Video: Playing';
-        videoPlayIcon.innerHTML = `
+      // Toggle Video Play / Pause
+      videoPlayBtn?.addEventListener('click', function () {
+        if (!video) return;
+        if (video.paused) {
+          video.play();
+          videoPlayBtn.setAttribute('aria-pressed', 'false');
+          videoPlayText.textContent = 'Video: Playing';
+          videoPlayIcon.innerHTML = `
           <rect x="6" y="4" width="4" height="16" rx="1"/>
           <rect x="14" y="4" width="4" height="16" rx="1"/>
         `;
-      } else {
-        video.pause();
-        videoPlayBtn.setAttribute('aria-pressed', 'true');
-        videoPlayText.textContent = 'Video: Paused';
-        videoPlayIcon.innerHTML = `
+        } else {
+          video.pause();
+          videoPlayBtn.setAttribute('aria-pressed', 'true');
+          videoPlayText.textContent = 'Video: Paused';
+          videoPlayIcon.innerHTML = `
           <polygon points="5 3 19 12 5 21 5 3"/>
         `;
-      }
-    });
+        }
+      });
 
-  });
+    });
   </script>
 </body>
+
 </html>
